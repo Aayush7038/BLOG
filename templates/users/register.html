@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <div class="jumbotron">
+
+        <div class="container" style="width: 70%; margin:auto;padding:30px; text-align:center">
+            
+            
+            <form action="register" method="POST">
+                {% csrf_token%}
+                {% if request.GET.next %}
+                <input type="hidden" name="next" value="{{request.GET.next}}">
+                {% endif %}
+                <p id="p1">First Name</p>
+                <input type="text" name="first_name" placeholder="First Name" required>
+                <p id="p2">Last Name</p>
+                <input type="text" name="last_name" placeholder="Last Name" required>
+                <p id="p3">Username</p>
+                <input type="text" name="username" placeholder="Username" required>
+                <p id="p4">Email</p>
+                <input type="email" name="email" placeholder="Email Address" required>
+                <p id="p5">Password</p>
+                <input type="password" name="password1" placeholder="Password" required>
+                <p id="p6">Confirm Password</p>
+                <input type="password" name="password2" placeholder="Confirm Password" required>
+                <div class="formbtn">
+                    
+                    <input type="submit">
+                </div>
+            </form>
+            
+        </div>
+    </div>
+    </div>
+    {% endblock content %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <div class="row py-10">
+        {% for c in categories %}
+        <div class="col col-md-3">
+            <h4><a href="{% url 'video:categoryview' c.slug %}">{{c.name}}</a></h4>
+            <img src="{{c.img.url}}" alt="img" style="height: 200px; width: 200px;">
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}
